@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+<!-- ============================================================= SEO ===
+     Renter-value framing in every public string. One canonical, OG +
+     Twitter cards, and LodgingBusiness structured data for rich results.
+     image/url are production placeholders to swap when hosted.            -->
+<title>UMBRA · Cold, Dark, Quiet Micro-Homes in Phoenix, AZ</title>
+<meta name="description" content="A cold, dark, quiet room in central Phoenix — rented by the night and set to 68° before you walk in. Real key, no lobby, nothing watched inside." />
+<meta name="keywords" content="Phoenix micro-home, nightly rental Phoenix, quiet dark room Phoenix, private rental Scottsdale, soundproof room rental" />
+<meta name="theme-color" content="#1a1b24" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://umbra-phx.com/" />
+
+<meta property="og:type" content="business.business" />
+<meta property="og:title" content="UMBRA · Cold, Dark, Quiet Micro-Homes in Phoenix" />
+<meta property="og:description" content="A cold, dark, quiet room in central Phoenix, set to 68° before you arrive. Real key, no lobby, nothing watched inside." />
+<meta property="og:url" content="https://umbra-phx.com/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://umbra-phx.com/og.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="UMBRA · Micro-Homes, Phoenix" />
+<meta name="twitter:description" content="Cold, dark, quiet. Rented by the night and set to 68° before you arrive." />
+<meta name="twitter:image" content="https://umbra-phx.com/og.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "UMBRA",
+  "description": "Cold, dark, quiet micro-homes in central Phoenix, rented by the night and set to 68° before arrival.",
+  "url": "https://umbra-phx.com/",
+  "image": "https://umbra-phx.com/og.jpg",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Phoenix",
+    "addressRegion": "AZ",
+    "postalCode": "85004",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 33.4484, "longitude": -112.0740 },
+  "numberOfRooms": 1,
+  "petsAllowed": false,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Blackout shades", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Memory foam king bed", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Soundproofing", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "No cameras inside", "value": true }
+  ]
+}
+</script>
+
+<!-- ===================================================== 1. HEAD FONTS ===
+     Fraunces (variable serif, optical sizing) for editorial display +
+     oversized structural numerals. Instrument Sans for body/UI/nav.
+     Geist Mono for the instrument voice (temperature, labels, ref no).    -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,900&family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* ===================================================== 2. CSS VARIABLES ===
+   OKLCH tokens. One dominant per stage (hot bone / cool night), ember +
+   brass as the sharp accents, sage as a quiet cool counter-accent.        */
+:root{
+  /* exterior (hot, light) */
+  --sky-bone:    oklch(0.95 0.025 92);
+  --sky-amber:   oklch(0.90 0.075 75);
+  --horizon:     oklch(0.72 0.165 50);
+  --sand:        oklch(0.90 0.030 82);
+  --ink:         oklch(0.27 0.020 60);
+  --ink-muted:   oklch(0.46 0.022 62);
+
+  /* interior (cool, dark) — never pure black */
+  --night:       oklch(0.205 0.030 268);
+  --night-deep:  oklch(0.155 0.026 270);
+  --night-warm:  oklch(0.245 0.026 50);
+  --bone:        oklch(0.935 0.016 86);
+  --bone-muted:  oklch(0.685 0.020 80);
+
+  /* metals + accents */
+  --brass:       oklch(0.80 0.100 82);
+  --brass-bright:oklch(0.885 0.110 86);
+  --ember:       oklch(0.70 0.175 45);
+  --sage:        oklch(0.62 0.040 162);
+
+  /* lines */
+  --line-light:  oklch(0.82 0.020 75);
+  --line-dark:   oklch(0.40 0.022 270);
+
+  /* type scale — deliberately non-uniform */
+  --t-display: clamp(4.2rem, 15vw, 13rem);
+  --t-mega:    clamp(3rem, 10vw, 7rem);
+  --t-h1:      clamp(2.5rem, 7vw, 5rem);
+  --t-h2:      clamp(1.9rem, 4.8vw, 3.3rem);
+  --t-h3:      clamp(1.15rem, 2.6vw, 1.55rem);
+  --t-lede:    clamp(1.08rem, 2.2vw, 1.4rem);
+  --t-body:    clamp(1rem, 1.5vw, 1.12rem);
+  --t-data:    clamp(1.1rem, 2.6vw, 1.6rem);
+  --t-label:   0.72rem;
+
+  /* spacing — 8px base */
+  --s1: 8px;  --s2: 16px; --s3: 24px; --s4: 40px;
+  --s5: 64px; --s6: 96px; --s7: 128px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);   /* spring-ish */
+  --maxw: 1240px;
+}
+
+/* ===================================================== 5. RESET / BASE === */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+body{
+  font-family:"Instrument Sans", sans-serif;
+  font-size:var(--t-body);
+  line-height:1.62;
+  color:var(--bone);
+  background-color:#15161e;            /* resilience under the layered art */
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg{ display:block; max-width:100%; }
+a{ color:inherit; text-decoration:none; }
+:focus-visible{ outline:2px solid var(--brass-bright); outline-offset:3px; border-radius:2px; }
+::selection{ background:var(--ember); color:#fff; }
+
+/* ===================================================== 6. TYPOGRAPHY === */
+.fraunces{ font-family:"Fraunces", serif; }
+.mono{
+  font-family:"Geist Mono", monospace;
+  font-size:var(--t-label);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+h1,h2,h3{ font-family:"Fraunces", serif; font-weight:400; line-height:1.02; letter-spacing:-0.015em; }
+h2{ font-size:var(--t-h2); }
+h3{ font-family:"Instrument Sans", sans-serif; font-size:var(--t-h3); font-weight:600; line-height:1.25; letter-spacing:0; }
+p{ max-width:62ch; }
+.lede{ font-size:var(--t-lede); line-height:1.5; color:var(--bone-muted); font-weight:400; }
+
+/* ===================================================== 7. LAYOUT UTIL === */
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--s3); }
+.section{ position:relative; padding-block:var(--s6); overflow:hidden; }
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+.delay-1{ transition-delay:.08s; } .delay-2{ transition-delay:.16s; }
+.delay-3{ transition-delay:.24s; } .delay-4{ transition-delay:.32s; }
+
+/* ===================================================== 8. LOCKED NAV === */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--s2) var(--s3);
+  mix-blend-mode:difference;          /* legible over both hot + cool */
+  color:#fff;
+}
+.nav__brand{ font-family:"Fraunces", serif; font-weight:600; font-size:1.35rem; letter-spacing:0.02em; }
+.nav__links{ display:none; gap:var(--s3); align-items:center; }
+.nav__links a{ position:relative; font-size:0.82rem; letter-spacing:0.04em; padding-block:6px; }
+.nav__links a::after{
+  content:""; position:absolute; left:0; bottom:0; height:1px; width:0; background:currentColor;
+  transition:width .4s var(--ease);
+}
+.nav__links a:hover::after{ width:100%; }
+.nav__tag{ font-family:"Geist Mono", monospace; font-size:0.62rem; letter-spacing:0.22em; opacity:.85; }
+@media (min-width:760px){ .nav__links{ display:flex; } }
+
+/* ============================================ 10. SEAL — SCROLL STAGE ===
+   Tall section; an inner sticky stage is pinned for one screen of scroll.
+   Scroll progress through it drives the WebGL seal deterministically.     */
+.seal-scroll{ position:relative; height:230vh; }
+.seal-stage{
+  position:sticky; top:0; height:100svh; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+/* live shader canvas (decorative, behind copy) */
+#gl{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+/* layered-gradient fallback when no WebGL / reduced motion (never flat) */
+.hf{ position:absolute; inset:0; z-index:0; display:none; }
+.hf-heat{
+  background:
+    radial-gradient(120% 80% at 78% 88%, oklch(0.9 0.06 65 / .5), transparent 60%),
+    linear-gradient(180deg, var(--sky-bone) 0%, var(--sky-amber) 52%, var(--horizon) 100%);
+}
+.hf-cool{
+  opacity:0;
+  background:
+    radial-gradient(60% 50% at 30% 60%, oklch(0.5 0.07 60 / .5), transparent 70%),
+    radial-gradient(50% 45% at 72% 42%, oklch(0.45 0.06 55 / .45), transparent 72%),
+    linear-gradient(180deg, var(--night-deep), var(--night) 70%, var(--night-warm));
+}
+.no-webgl .hf{ display:block; }
+.no-webgl #gl{ display:none; }
+
+/* exterior copy — anchored low-left over vast hot space */
+.exterior{ position:relative; z-index:2; padding:var(--s3) var(--s3) var(--s5); will-change:opacity; }
+.exterior__kicker{ color:var(--ink-muted); margin-bottom:var(--s2); }
+.exterior__num{
+  font-family:"Fraunces", serif; font-weight:900; font-size:var(--t-display);
+  line-height:.8; color:var(--horizon); letter-spacing:-0.04em;
+  margin-left:-0.06em;                /* optical bleed past the edge */
+  text-shadow:0 2px 40px oklch(0.72 0.165 50 / .35);
+}
+.exterior h1{ color:var(--ink); font-weight:500; max-width:14ch; margin-top:var(--s1); }
+.exterior .lede{ color:var(--ink-muted); margin-top:var(--s2); max-width:38ch; }
+
+/* the door-pull handle — tactile brass, the affordance to begin */
+.pull{
+  margin-top:var(--s4); display:inline-flex; align-items:center; gap:var(--s2);
+  background:none; border:none; cursor:pointer; color:var(--ink);
+  -webkit-tap-highlight-color:transparent;
+}
+.pull__grip{
+  width:14px; height:88px; border-radius:8px;
+  background:linear-gradient(100deg, oklch(0.62 0.09 80), var(--brass-bright) 45%, oklch(0.55 0.08 78));
+  box-shadow:0 10px 26px oklch(0.5 0.08 70 / .45), inset 0 0 0 1px oklch(0.92 0.06 86 / .5);
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.pull:hover .pull__grip{ transform:translateY(7px); box-shadow:0 6px 18px oklch(0.5 0.08 70 / .5), inset 0 0 0 1px oklch(0.92 0.06 86 / .6); }
+.pull__label{ font-family:"Geist Mono", monospace; font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase; text-align:left; line-height:1.5; }
+.pull__label small{ display:block; color:var(--ink-muted); letter-spacing:0.18em; }
+
+/* live instrument readout — temperature scrubs 115 -> 68 */
+.readout{
+  position:absolute; top:max(86px, 12vh); right:var(--s3); z-index:2; text-align:right;
+  font-family:"Geist Mono", monospace; color:var(--ink);
+}
+.readout__t{ font-size:var(--t-data); font-weight:500; letter-spacing:0.02em; }
+.readout__l{ font-size:0.6rem; letter-spacing:0.24em; color:var(--ink-muted); }
+
+/* interior reveal copy — fades in as the seal completes */
+.interior-reveal{
+  position:absolute; inset:0; z-index:3; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  opacity:0; pointer-events:none; color:var(--bone); padding:var(--s3);
+}
+.interior-reveal .big{ font-family:"Fraunces", serif; font-weight:300; font-size:var(--t-mega); line-height:.9; }
+.interior-reveal .small{ font-family:"Geist Mono", monospace; font-size:0.72rem; letter-spacing:0.34em; text-transform:uppercase; margin-top:var(--s3); color:var(--brass-bright); }
+
+/* ============================================ 11. ROOM (interior) === */
+.room{
+  background:
+    radial-gradient(80% 60% at 18% 22%, oklch(0.3 0.05 60 / .55), transparent 60%),
+    radial-gradient(70% 55% at 92% 78%, oklch(0.26 0.04 270 / .6), transparent 65%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+}
+.room__grid{ display:grid; gap:var(--s4); }
+.room h2{ color:var(--bone); max-width:16ch; }
+.room .lede{ margin-top:var(--s3); }
+/* the kept hard line — a statement, not a tagline */
+.statement{
+  font-family:"Fraunces", serif; font-weight:300; font-size:var(--t-h1);
+  line-height:1.05; color:var(--brass-bright); margin-top:var(--s5);
+  max-width:18ch; letter-spacing:-0.01em;
+}
+/* rotated structural label (desktop) + horizontal version (mobile) */
+.vlabel-h{ font-family:"Geist Mono", monospace; font-size:0.66rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--sage); margin-bottom:var(--s2); }
+.vlabel-v{ display:none; }
+@media (min-width:900px){
+  .vlabel-h{ display:none; }
+  .vlabel-v{
+    display:block; position:absolute; top:var(--s6); right:2.4vw;
+    writing-mode:vertical-rl; font-family:"Geist Mono", monospace;
+    font-size:0.78rem; letter-spacing:0.42em; text-transform:uppercase; color:var(--sage);
+  }
+}
+/* spec ledger — asymmetric rows: concrete thing -> what you get */
+.ledger{ margin-top:var(--s5); border-top:1px solid var(--line-dark); }
+.ledger > div{
+  display:grid; grid-template-columns:1fr; gap:var(--s1);
+  padding:var(--s3) 0; border-bottom:1px solid var(--line-dark);
+}
+.ledger dt{ font-family:"Geist Mono", monospace; font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--brass); }
+.ledger dd{ color:var(--bone); font-size:var(--t-h3); line-height:1.4; max-width:46ch; }
+@media (min-width:760px){
+  .ledger > div{ grid-template-columns:minmax(120px, 22%) 1fr; gap:var(--s4); align-items:baseline; }
+}
+
+/* ============================================ RESERVE (brass-lit) === */
+.reserve{
+  background:
+    radial-gradient(90% 70% at 75% 30%, oklch(0.34 0.07 65 / .6), transparent 62%),
+    linear-gradient(180deg, var(--night-deep) 0%, oklch(0.19 0.03 60) 100%);
+}
+.reserve h2{ color:var(--brass-bright); max-width:12ch; }
+.reserve .lede{ margin-top:var(--s3); max-width:44ch; }
+.concierge{ display:grid; gap:var(--s5); margin-top:var(--s5); align-items:start; }
+@media (min-width:860px){ .concierge{ grid-template-columns:40% 1fr; gap:var(--s6); } }
+
+/* the brass key — turns on the handoff */
+.keywrap{ display:flex; flex-direction:column; align-items:center; gap:var(--s3); }
+.key{ width:min(78%, 220px); transition:transform 1.1s var(--ease); transform-origin:78% 50%; }
+.keywrap.turned .key{ transform:rotate(34deg); }
+.key__no{ font-family:"Geist Mono", monospace; font-size:0.64rem; letter-spacing:0.26em; text-transform:uppercase; color:var(--brass); }
+
+/* engraved fields — not a boxed form */
+.fields{ display:flex; flex-direction:column; gap:var(--s4); }
+.field{ border-bottom:1px solid var(--line-dark); padding-bottom:var(--s2); }
+.field > label, .field > .flabel{
+  display:block; font-family:"Geist Mono", monospace; font-size:0.66rem;
+  letter-spacing:0.22em; text-transform:uppercase; color:var(--brass); margin-bottom:var(--s2);
+}
+.field input[type="date"]{
+  width:100%; background:transparent; border:none; color:var(--bone);
+  font-family:"Fraunces", serif; font-size:1.5rem; padding:4px 0;
+}
+.field input[type="date"]::-webkit-calendar-picker-indicator{ filter:invert(1) sepia(1) saturate(3) hue-rotate(5deg); cursor:pointer; opacity:.8; }
+.stepper{ display:flex; align-items:center; gap:var(--s3); }
+.stepper button{
+  width:46px; height:46px; border-radius:50%; cursor:pointer;
+  background:transparent; border:1px solid var(--line-dark); color:var(--bone);
+  font-size:1.4rem; line-height:1; transition:border-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+}
+.stepper button:hover{ border-color:var(--brass); color:var(--brass-bright); transform:translateY(-2px); }
+.stepper__val{ font-family:"Fraunces", serif; font-size:1.6rem; min-width:3ch; text-align:center; }
+.stepper__val small{ font-family:"Instrument Sans", sans-serif; font-size:0.8rem; color:var(--bone-muted); margin-left:6px; }
+.seg{ display:inline-flex; gap:6px; }
+.seg button{
+  min-width:56px; height:46px; padding:0 var(--s2); border-radius:24px; cursor:pointer;
+  background:transparent; border:1px solid var(--line-dark); color:var(--bone-muted);
+  font-family:"Geist Mono", monospace; font-size:0.8rem; letter-spacing:0.08em;
+  transition:all .3s var(--ease);
+}
+.seg button[aria-pressed="true"]{ background:var(--brass); border-color:var(--brass); color:var(--night-deep); }
+.seg button:hover{ border-color:var(--brass); color:var(--bone); transform:translateY(-2px); }
+
+/* the action — brass sweep on hover */
+.turnkey{
+  position:relative; overflow:hidden; margin-top:var(--s2);
+  display:inline-flex; align-items:center; gap:var(--s2);
+  background:var(--brass); color:var(--night-deep); cursor:pointer; border:none;
+  padding:18px var(--s4); border-radius:40px;
+  font-family:"Geist Mono", monospace; font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .3s;
+  box-shadow:0 10px 30px oklch(0.5 0.08 70 / .35);
+}
+.turnkey::before{
+  content:""; position:absolute; inset:0; transform:translateX(-101%);
+  background:linear-gradient(100deg, transparent, var(--brass-bright), transparent);
+  transition:transform .6s var(--ease);
+}
+.turnkey:hover:not(:disabled){ transform:translateY(-3px); box-shadow:0 16px 40px oklch(0.5 0.08 70 / .45); }
+.turnkey:hover:not(:disabled)::before{ transform:translateX(101%); }
+.turnkey:disabled{ opacity:.4; cursor:not-allowed; }
+.turnkey.loading{ pointer-events:none; }
+
+.error{ color:var(--ember); font-size:0.9rem; margin-top:var(--s2); min-height:1.2em; }
+
+/* confirmation — the room is held */
+.confirm{ display:none; border:1px solid var(--brass); border-radius:18px; padding:var(--s4); background:oklch(0.22 0.03 60 / .5); }
+.confirm.show{ display:block; animation:rise .7s var(--ease) both; }
+@keyframes rise{ from{ opacity:0; transform:translateY(20px); } to{ opacity:1; transform:none; } }
+.confirm h3{ font-family:"Fraunces", serif; font-weight:400; font-size:1.7rem; color:var(--brass-bright); margin-bottom:var(--s3); }
+.confirm__row{ display:flex; justify-content:space-between; gap:var(--s3); padding:var(--s2) 0; border-bottom:1px dashed var(--line-dark); font-family:"Geist Mono", monospace; font-size:0.82rem; }
+.confirm__row span:first-child{ color:var(--bone-muted); letter-spacing:0.08em; text-transform:uppercase; font-size:0.7rem; }
+.confirm__row span:last-child{ color:var(--bone); }
+.confirm__note{ color:var(--bone-muted); font-size:0.92rem; margin-top:var(--s3); }
+.release{ margin-top:var(--s3); background:none; border:none; color:var(--brass); cursor:pointer; font-family:"Geist Mono", monospace; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; padding:8px 0; }
+.release:hover{ color:var(--ember); }
+
+/* ============================================ TERMS (matrix) === */
+.terms{ background:linear-gradient(180deg, oklch(0.19 0.03 60), var(--night) 100%); }
+.terms h2{ color:var(--bone); }
+.terms .lede{ margin-top:var(--s2); max-width:46ch; }
+.tbl-wrap{ margin-top:var(--s5); overflow-x:auto; }
+table{ width:100%; border-collapse:collapse; min-width:520px; }
+caption{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+th,td{ text-align:left; padding:var(--s2) var(--s2); border-bottom:1px solid var(--line-dark); vertical-align:top; }
+thead th{ font-family:"Geist Mono", monospace; font-size:0.64rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--brass); font-weight:500; }
+tbody td{ color:var(--bone); font-size:0.96rem; }
+tbody td:first-child{ font-family:"Geist Mono", monospace; font-size:0.78rem; letter-spacing:0.06em; color:var(--bone-muted); white-space:nowrap; }
+.privacy-floor{ margin-top:var(--s4); font-family:"Fraunces", serif; font-weight:300; font-size:var(--t-h3); color:var(--brass-bright); }
+.heatclause{
+  margin-top:var(--s5); padding:var(--s4); border-left:3px solid var(--ember);
+  background:oklch(0.24 0.04 45 / .4); border-radius:0 12px 12px 0;
+}
+.heatclause .mono{ color:var(--ember); display:block; margin-bottom:var(--s2); }
+.heatclause p{ color:var(--bone); font-size:var(--t-h3); line-height:1.4; max-width:40ch; font-family:"Fraunces", serif; font-weight:300; }
+
+/* ============================================ 12. FOOTER (<280px) === */
+.footer{
+  background:var(--night-deep); border-top:1px solid var(--line-dark);
+  display:flex; flex-wrap:wrap; align-items:center; gap:var(--s3) var(--s4);
+  padding:var(--s4) var(--s3);
+}
+.footer__brand{ font-family:"Fraunces", serif; font-weight:600; font-size:1.25rem; color:var(--bone); }
+.footer__tag{ font-family:"Geist Mono", monospace; font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--bone-muted); }
+.footer__nav{ display:flex; flex-wrap:wrap; gap:var(--s3); margin-left:auto; }
+.footer__nav a{ font-size:0.82rem; color:var(--bone-muted); transition:color .3s; }
+.footer__nav a:hover{ color:var(--brass-bright); }
+.footer__legal{ width:100%; font-family:"Geist Mono", monospace; font-size:0.62rem; letter-spacing:0.1em; color:var(--line-dark); }
+
+/* return affordance */
+.toTop{
+  position:fixed; left:var(--s3); bottom:var(--s3); z-index:40;
+  background:oklch(0.2 0.03 268 / .7); backdrop-filter:blur(8px);
+  border:1px solid var(--line-dark); color:var(--bone-muted);
+  font-family:"Geist Mono", monospace; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
+  padding:10px 14px; border-radius:30px; cursor:pointer;
+  opacity:0; pointer-events:none; transition:opacity .5s var(--ease), color .3s, border-color .3s;
+}
+.toTop.show{ opacity:1; pointer-events:auto; }
+.toTop:hover{ color:var(--brass-bright); border-color:var(--brass); }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ transition:none; opacity:1; transform:none; }
+  .key,.turnkey,.pull__grip{ transition:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================ LOCKED NAV === -->
+<header class="nav">
+  <a class="nav__brand" href="#top" aria-label="UMBRA home">UMBRA</a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#room">The Room</a>
+    <a href="#terms">Rates &amp; Terms</a>
+    <a href="#reserve">Reserve</a>
+    <span class="nav__tag" aria-hidden="true">PHX · 33.4°N</span>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===================== STAGE 1+2: EXTERIOR HEAT → DETERMINISTIC SEAL -->
+  <section class="seal-scroll" aria-label="Outside Phoenix, sealing into the room">
+    <div class="seal-stage">
+      <!-- live shader (decorative) + layered fallback -->
+      <canvas id="gl" aria-hidden="true"></canvas>
+      <div class="hf" aria-hidden="true">
+        <div class="hf-heat" style="position:absolute;inset:0"></div>
+        <div class="hf-cool" id="hfCool" style="position:absolute;inset:0"></div>
+      </div>
+
+      <!-- instrument readout -->
+      <div class="readout" aria-hidden="true">
+        <div class="readout__t"><span id="tempReadout">115</span>°F</div>
+        <div class="readout__l">INSIDE</div>
+      </div>
+
+      <!-- exterior copy (fades as you seal) -->
+      <div class="exterior" id="exterior">
+        <p class="mono exterior__kicker">Phoenix, Arizona · 115°F outside</p>
+        <div class="exterior__num" aria-hidden="true">115°</div>
+        <h1>Come in out of it.</h1>
+        <p class="lede">A cold, dark, quiet room in central Phoenix. Rented by the night, and already set to 68° before you walk in.</p>
+
+        <button class="pull" id="pull" type="button" aria-label="Seal the door and enter the room">
+          <span class="pull__grip" aria-hidden="true"></span>
+          <span class="pull__label">Pull to seal<small>or scroll ↓</small></span>
+        </button>
+      </div>
+
+      <!-- interior reveal (fades in as the seal completes) -->
+      <div class="interior-reveal" id="interiorReveal" aria-hidden="true">
+        <div class="big">68°</div>
+        <div class="small">Sealed · Quiet · Yours</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STAGE 3: THE ROOM -->
+  <section class="section room" id="room" aria-labelledby="room-h">
+    <span class="vlabel-v" aria-hidden="true">SEALED · 68°F · UNIT 04</span>
+    <div class="wrap room__grid">
+      <div>
+        <p class="vlabel-h">Sealed · 68°F · Unit 04</p>
+        <h2 id="room-h" class="reveal">The city stops at the door.</h2>
+        <p class="lede reveal delay-1">No traffic, no neighbors, no front desk to walk through. You let yourself in with a real key, and the afternoon belongs to you again.</p>
+        <p class="statement reveal delay-2">Ice cold air.<br>Memory foam.<br>No street noise.</p>
+      </div>
+
+      <!-- spec ledger: the thing → what you get -->
+      <dl class="ledger reveal delay-1">
+        <div><dt>Climate</dt><dd>Set it to 66 and forget the sun is out. It holds there all day, no fighting the thermostat.</dd></div>
+        <div><dt>The bed</dt><dd>Memory foam, king. You won't feel the mattress, the street, or what time it is.</dd></div>
+        <div><dt>The dark</dt><dd>Blackout shades to the edges. Sleep clean past noon without ever knowing it happened.</dd></div>
+        <div><dt>The door</dt><dd>Solid-core and sealed. Phoenix ends where the threshold begins, and stays there.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===================== RESERVE: BRASS-KEY HANDOFF -->
+  <section class="section reserve" id="reserve" aria-labelledby="reserve-h">
+    <div class="wrap">
+      <h2 id="reserve-h" class="reveal">Hold the room.</h2>
+      <p class="lede reveal delay-1">Pick your nights. The room is yours the moment the key turns — already cold, already dark, already waiting on you.</p>
+
+      <div class="concierge">
+        <!-- the key -->
+        <div class="keywrap reveal delay-1" id="keywrap">
+          <svg class="key" viewBox="0 0 280 110" role="img" aria-label="Brass room key">
+            <defs>
+              <linearGradient id="brassG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e9cf91"/>
+                <stop offset="0.5" stop-color="#c69a4e"/>
+                <stop offset="1" stop-color="#9a7636"/>
+              </linearGradient>
+            </defs>
+            <!-- bow -->
+            <circle cx="58" cy="55" r="40" fill="none" stroke="url(#brassG)" stroke-width="13"/>
+            <circle cx="58" cy="55" r="15" fill="none" stroke="url(#brassG)" stroke-width="9"/>
+            <!-- shaft -->
+            <rect x="92" y="48" width="170" height="14" rx="5" fill="url(#brassG)"/>
+            <!-- bittings -->
+            <rect x="232" y="62" width="12" height="20" rx="2" fill="url(#brassG)"/>
+            <rect x="210" y="62" width="10" height="26" rx="2" fill="url(#brassG)"/>
+            <rect x="190" y="62" width="9"  height="16" rx="2" fill="url(#brassG)"/>
+          </svg>
+          <span class="key__no">One key · Unit 04</span>
+        </div>
+
+        <!-- fields (no boxed form feel) -->
+        <form class="fields" id="resForm" novalidate>
+          <div class="field">
+            <label for="arrival">Arrival</label>
+            <input type="date" id="arrival" name="arrival" required />
+          </div>
+
+          <div class="field">
+            <span class="flabel">Nights</span>
+            <div class="stepper">
+              <button type="button" id="nMinus" aria-label="One fewer night">−</button>
+              <span class="stepper__val"><span id="nightsVal">2</span><small>nights</small></span>
+              <button type="button" id="nPlus" aria-label="One more night">+</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="flabel" id="guestsLabel">Guests</span>
+            <div class="seg" role="group" aria-labelledby="guestsLabel">
+              <button type="button" data-g="1" aria-pressed="true">1</button>
+              <button type="button" data-g="2" aria-pressed="false">2</button>
+            </div>
+          </div>
+
+          <div>
+            <button type="submit" class="turnkey" id="holdBtn" disabled>
+              <span id="holdLabel">Turn the key</span>
+            </button>
+            <p class="error" id="resError" role="alert" aria-live="assertive"></p>
+          </div>
+        </form>
+
+        <!-- confirmation -->
+        <div class="confirm" id="resConfirm" aria-live="polite">
+          <h3>The room is yours.</h3>
+          <div class="confirm__row"><span>Arrive</span><span id="cArrival">—</span></div>
+          <div class="confirm__row"><span>Until</span><span id="cDepart">—</span></div>
+          <div class="confirm__row"><span>Nights</span><span id="cNights">—</span></div>
+          <div class="confirm__row"><span>Guests</span><span id="cGuests">—</span></div>
+          <div class="confirm__row"><span>Key no.</span><span id="cRef">—</span></div>
+          <p class="confirm__note">It'll be 68° and dark when you arrive. Payment is taken in person, at the door.</p>
+          <button type="button" class="release" id="releaseBtn">Release the room</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TERMS: THE AIRTIGHT MATRIX -->
+  <section class="section terms" id="terms" aria-labelledby="terms-h">
+    <div class="wrap">
+      <h2 id="terms-h" class="reveal">In writing.</h2>
+      <p class="lede reveal delay-1">What's yours, what comes back to you, and what never gets watched.</p>
+
+      <div class="tbl-wrap reveal delay-1">
+        <table>
+          <caption>Cancellation: what comes back to you</caption>
+          <thead><tr><th scope="col">When you cancel</th><th scope="col">What comes back</th></tr></thead>
+          <tbody>
+            <tr><td>30+ days out</td><td>Everything.</td></tr>
+            <tr><td>14–29 days</td><td>Everything but the first night.</td></tr>
+            <tr><td>7–13 days</td><td>Half.</td></tr>
+            <tr><td>Under 7 days</td><td>Nothing — the room's already held for you, cold and dark.</td></tr>
+            <tr><td>No-show</td><td>Nothing.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tbl-wrap reveal delay-1">
+        <table>
+          <caption>Privacy: what's held and who sees it</caption>
+          <thead><tr><th scope="col">What's held</th><th scope="col">Why</th><th scope="col">How long</th><th scope="col">Who sees it</th></tr></thead>
+          <tbody>
+            <tr><td>Name &amp; dates</td><td>To hold the room and cut your key</td><td>90 days after checkout</td><td>One person, the one who cuts it</td></tr>
+            <tr><td>Payment</td><td>Taken in person, at the door</td><td>Nothing stored on our servers</td><td>No one</td></tr>
+            <tr><td>Lock times</td><td>Security only</td><td>30 days</td><td>You, on request</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="privacy-floor reveal">No cameras, microphones, or sensors inside. The room watches nothing.</p>
+
+      <div class="heatclause reveal">
+        <span class="mono">The heat clause</span>
+        <p>If the room ever climbs past 74° and we can't fix it within the hour, that night's on us.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================ FOOTER === -->
+<footer class="footer">
+  <span class="footer__brand">UMBRA</span>
+  <span class="footer__tag">Micro-Homes · Phoenix, AZ</span>
+  <nav class="footer__nav" aria-label="Footer">
+    <a href="#room">The Room</a>
+    <a href="#terms">Rates</a>
+    <a href="#reserve">Reserve</a>
+    <a href="#terms">Privacy</a>
+    <a href="#terms">Terms</a>
+  </nav>
+  <span class="footer__legal">© 2026 UMBRA LLC · Phoenix, Arizona · Cold, dark, quiet — sold by the night.</span>
+</footer>
+
+<button class="toTop" id="toTop" type="button" aria-label="Back to the top">↑ Outside</button>
+
+<script>
+/* =========================================================================
+   13. JS — order: scroll/seal engine → WebGL shader → reveals → reservation
+   Vanilla, no libraries. Everything degrades: no WebGL or reduced-motion
+   falls back to layered CSS gradients with the same scrubbed crossfade.
+   ========================================================================= */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- element refs ---------- */
+  var sealSection   = document.querySelector(".seal-scroll");
+  var exterior      = document.getElementById("exterior");
+  var interiorReveal= document.getElementById("interiorReveal");
+  var tempEl        = document.getElementById("tempReadout");
+  var hfCool        = document.getElementById("hfCool");
+  var pull          = document.getElementById("pull");
+  var toTop         = document.getElementById("toTop");
+  var canvas        = document.getElementById("gl");
+
+  /* =====================================================================
+     WEBGL SEAL SHADER (ST_006: texture_A + texture_B + noise -> morph).
+     Center-closing aperture with a hot seam light that pinches out, a
+     heat-shimmer exterior, and a brass-lit cool interior.
+     ===================================================================== */
+  var gl=null, prog=null, uTime=null, uProg=null, uRes=null, startT=performance.now();
+  var glOK=false;
+
+  var VERT = "attribute vec2 aPos; void main(){ gl_Position=vec4(aPos,0.0,1.0); }";
+  var FRAG = [
+  "precision mediump float;",
+  "uniform float uTime; uniform float uProgress; uniform vec2 uRes;",
+  "float hash(vec2 p){ p=fract(p*vec2(123.34,345.45)); p+=dot(p,p+34.345); return fract(p.x*p.y); }",
+  "float noise(vec2 p){ vec2 i=floor(p),f=fract(p);",
+  "  float a=hash(i),b=hash(i+vec2(1.,0.)),c=hash(i+vec2(0.,1.)),d=hash(i+vec2(1.,1.));",
+  "  vec2 u=f*f*(3.-2.*f); return mix(mix(a,b,u.x),mix(c,d,u.x),u.y); }",
+  "float fbm(vec2 p){ float v=0.,a=.5; for(int i=0;i<4;i++){ v+=a*noise(p); p*=2.02; a*=.5; } return v; }",
+  "void main(){",
+  "  vec2 uv=gl_FragCoord.xy/uRes; float aspect=uRes.x/uRes.y; vec2 suv=vec2(uv.x*aspect,uv.y);",
+  "  float t=uTime;",
+  /* exterior heat field */
+  "  vec3 bone=vec3(0.96,0.93,0.85), amber=vec3(0.96,0.80,0.55), ember=vec3(0.92,0.45,0.22);",
+  "  float gy=uv.y;",
+  "  vec3 ext=mix(ember,amber,smoothstep(0.0,0.42,gy)); ext=mix(ext,bone,smoothstep(0.34,1.0,gy));",
+  "  float heat=fbm(suv*3.0+vec2(0.0,t*0.6)+fbm(suv*2.0-t*0.2));",
+  "  ext+=(heat-0.5)*0.18*(1.0-smoothstep(0.0,0.55,gy));",
+  "  float sd=distance(uv,vec2(0.78,0.82))*2.4; ext+=exp(-sd*sd)*vec3(0.9,0.7,0.4)*0.25;",
+  /* interior night field */
+  "  vec3 night=vec3(0.10,0.11,0.16), nightWarm=vec3(0.16,0.13,0.12);",
+  "  vec3 inte=mix(night,nightWarm,1.0-smoothstep(0.0,0.8,gy));",
+  "  float p1d=distance(uv,vec2(0.30,0.62))*2.0; float pool1=exp(-p1d*p1d);",
+  "  float p2d=distance(uv,vec2(0.72,0.40))*2.2; float pool2=exp(-p2d*p2d);",
+  "  inte+=(pool1*0.55+pool2*0.40)*vec3(0.85,0.62,0.30);",
+  "  inte+=sin(t*0.5)*0.02*vec3(0.85,0.62,0.30)*(pool1+pool2);",
+  "  inte*=1.0-smoothstep(0.5,1.1,distance(uv,vec2(0.5)));",
+  /* airtight seal */
+  "  float pr=clamp(uProgress,0.0,1.0); float halfOpen=0.5*(1.0-pr);",
+  "  float disp=(fbm(suv*4.0+t*0.1)-0.5)*0.05*(1.0-pr);",
+  "  float d=abs(uv.x-0.5)+disp; float soft=0.012+0.04*(1.0-pr);",
+  "  float sealed=smoothstep(halfOpen-soft,halfOpen+soft,d);",
+  "  vec3 col=mix(ext,inte,sealed);",
+  "  float sm=(d-halfOpen)/0.012; float seam=exp(-sm*sm); seam*=(1.0-smoothstep(0.82,1.0,pr));",
+  "  col+=seam*vec3(1.0,0.75,0.45)*0.9;",
+  "  col=mix(col,col*vec3(0.92,0.95,1.04),pr*0.25);",
+  "  col+=(hash(gl_FragCoord.xy+t)-0.5)*0.045;",
+  "  gl_FragColor=vec4(col,1.0);",
+  "}"
+  ].join("\n");
+
+  function compile(type,src){
+    var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){ return null; }
+    return s;
+  }
+  function initGL(){
+    if(reduce) return false;
+    try{ gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl"); }catch(e){ gl=null; }
+    if(!gl) return false;
+    var vs=compile(gl.VERTEX_SHADER,VERT), fs=compile(gl.FRAGMENT_SHADER,FRAG);
+    if(!vs||!fs) return false;
+    prog=gl.createProgram(); gl.attachShader(prog,vs); gl.attachShader(prog,fs); gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)) return false;
+    gl.useProgram(prog);
+    var buf=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1, 3,-1, -1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(prog,"aPos"); gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    uTime=gl.getUniformLocation(prog,"uTime");
+    uProg=gl.getUniformLocation(prog,"uProgress");
+    uRes =gl.getUniformLocation(prog,"uRes");
+    sizeGL();
+    canvas.addEventListener("webglcontextlost",function(ev){ ev.preventDefault(); glOK=false; },false);
+    canvas.addEventListener("webglcontextrestored",function(){ if(initGL()) glOK=true; },false);
+    return true;
+  }
+  function sizeGL(){
+    if(!gl) return;
+    var dpr=Math.min(window.devicePixelRatio||1, 1.5);   // perf on mid-range devices
+    var w=Math.floor(canvas.clientWidth*dpr), h=Math.floor(canvas.clientHeight*dpr);
+    if(w===canvas.width && h===canvas.height) return;
+    canvas.width=w; canvas.height=h; gl.viewport(0,0,w,h);
+  }
+
+  glOK = initGL();
+  if(!glOK){ document.body.classList.add("no-webgl"); }   // show layered fallback
+
+  /* =====================================================================
+     DETERMINISTIC SCROLL ENGINE (ST_004): native scroll position ->
+     timeline progress -> rAF. No preventDefault, no scroll-jacking.
+     Drives shader, temperature, and the exterior/interior crossfade.
+     ===================================================================== */
+  var active=false, lastP=-1;
+
+  function progress(){
+    var rect=sealSection.getBoundingClientRect();
+    var scrollable=sealSection.offsetHeight - window.innerHeight;
+    var scrolled=Math.min(Math.max(-rect.top,0), scrollable);
+    return scrollable>0 ? scrolled/scrollable : 0;
+  }
+
+  function applyP(p){
+    /* temperature 115 -> 68 */
+    var temp=Math.round(115 - 47*p);
+    if(tempEl) tempEl.textContent=temp;
+    /* exterior fades out early, interior reveal fades in late */
+    var extOp=1 - smooth(0.0,0.55,p);
+    var intOp=smooth(0.55,0.94,p);
+    if(exterior) exterior.style.opacity=extOp;
+    if(interiorReveal) interiorReveal.style.opacity=intOp;
+    /* fallback cool layer crossfade (only visible when no WebGL) */
+    if(hfCool) hfCool.style.opacity=p;
+  }
+  function smooth(a,b,x){ var t=Math.min(Math.max((x-a)/(b-a),0),1); return t*t*(3-2*t); }
+
+  function frame(){
+    if(!active){ return; }
+    var p=progress();
+    if(Math.abs(p-lastP)>0.0005){ applyP(p); lastP=p; }
+    if(glOK && gl){
+      sizeGL();
+      gl.uniform1f(uTime,(performance.now()-startT)/1000);
+      gl.uniform1f(uProg,p);
+      gl.uniform2f(uRes,canvas.width,canvas.height);
+      gl.drawArrays(gl.TRIANGLES,0,3);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* run the loop only while the seal stage is near the viewport + tab visible */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ if(!active){ active=true; requestAnimationFrame(frame); } }
+      else{ active=false; }
+    });
+  },{ rootMargin:"10% 0px 10% 0px" });
+  io.observe(sealSection);
+
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden){ active=false; }
+    else if(isNear()){ active=true; requestAnimationFrame(frame); }
+  });
+  function isNear(){
+    var r=sealSection.getBoundingClientRect();
+    return r.bottom>-200 && r.top<window.innerHeight+200;
+  }
+  window.addEventListener("resize",function(){ sizeGL(); lastP=-1; });
+  applyP(progress());   // paint initial state
+
+  /* door-pull: smooth-scroll through the seal so click users get the scrub */
+  pull.addEventListener("click",function(){
+    var target=sealSection.offsetTop + (sealSection.offsetHeight - window.innerHeight);
+    window.scrollTo({ top:target, behavior: reduce ? "auto" : "smooth" });
+  });
+
+  /* =====================================================================
+     SCROLL REVEALS — opacity + translateY, staggered via CSS delay.
+     ===================================================================== */
+  var revs=document.querySelectorAll(".reveal");
+  if(reduce){
+    revs.forEach(function(el){ el.classList.add("in"); });
+  }else{
+    var rio=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); rio.unobserve(en.target); }
+      });
+    },{ threshold:0.18 });
+    revs.forEach(function(el){ rio.observe(el); });
+  }
+
+  /* show/hide the return affordance after leaving the seal */
+  var tio=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ toTop.classList.toggle("show", !en.isIntersecting); });
+  },{ threshold:0 });
+  tio.observe(sealSection);
+  toTop.addEventListener("click",function(){ window.scrollTo({ top:0, behavior: reduce ? "auto":"smooth" }); });
+
+  /* =====================================================================
+     RESERVATION — real logic, all states. No backend: the room "holds"
+     in the UI and issues a key number; a live booking needs wiring.
+     ===================================================================== */
+  var arrival   = document.getElementById("arrival");
+  var nMinus    = document.getElementById("nMinus");
+  var nPlus     = document.getElementById("nPlus");
+  var nightsVal = document.getElementById("nightsVal");
+  var holdBtn   = document.getElementById("holdBtn");
+  var holdLabel = document.getElementById("holdLabel");
+  var resError  = document.getElementById("resError");
+  var resForm   = document.getElementById("resForm");
+  var resConfirm= document.getElementById("resConfirm");
+  var keywrap   = document.getElementById("keywrap");
+  var releaseBtn= document.getElementById("releaseBtn");
+  var segBtns   = document.querySelectorAll(".seg button");
+
+  var nights=2, guests=1;
+
+  /* min arrival = today (local, not UTC) */
+  function todayISO(){
+    var d=new Date();
+    return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+  }
+  function pad(n){ return (n<10?"0":"")+n; }
+  arrival.min=todayISO();
+
+  function refreshHold(){ holdBtn.disabled = !arrival.value; resError.textContent=""; }
+  arrival.addEventListener("change",refreshHold);
+  arrival.addEventListener("input",refreshHold);
+
+  nMinus.addEventListener("click",function(){ nights=Math.max(1,nights-1); nightsVal.textContent=nights; });
+  nPlus .addEventListener("click",function(){ nights=Math.min(14,nights+1); nightsVal.textContent=nights; });
+
+  segBtns.forEach(function(b){
+    b.addEventListener("click",function(){
+      segBtns.forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      guests=parseInt(b.getAttribute("data-g"),10);
+    });
+  });
+
+  function fmt(d){ return new Intl.DateTimeFormat("en-US",{ weekday:"short", month:"short", day:"numeric" }).format(d); }
+
+  resForm.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!arrival.value){ return; }
+    /* guard: not in the past */
+    var parts=arrival.value.split("-");
+    var arr=new Date(parseInt(parts[0],10), parseInt(parts[1],10)-1, parseInt(parts[2],10));
+    var t0=new Date(); t0.setHours(0,0,0,0);
+    if(arr < t0){ resError.textContent="That date's already gone. Pick a night ahead."; return; }
+    resError.textContent="";
+
+    /* loading micro-state (UI affordance, not the seal animation) */
+    holdBtn.classList.add("loading"); holdLabel.textContent="Turning…";
+    setTimeout(function(){
+      var dep=new Date(arr); dep.setDate(dep.getDate()+nights);
+      document.getElementById("cArrival").textContent=fmt(arr);
+      document.getElementById("cDepart").textContent=fmt(dep);
+      document.getElementById("cNights").textContent=nights+(nights===1?" night":" nights");
+      document.getElementById("cGuests").textContent=guests+(guests===1?" guest":" guests");
+      document.getElementById("cRef").textContent="UMB-"+rand(4)+Math.floor(Math.random()*90+10);
+
+      keywrap.classList.add("turned");
+      resForm.style.display="none";
+      resConfirm.classList.add("show");
+      holdBtn.classList.remove("loading"); holdLabel.textContent="Turn the key";
+    }, reduce ? 0 : 620);
+  });
+
+  function rand(n){
+    var c="ABCDEFGHJKLMNPQRSTUVWXYZ23456789", s="";
+    for(var i=0;i<n;i++){ s+=c.charAt(Math.floor(Math.random()*c.length)); }
+    return s;
+  }
+
+  releaseBtn.addEventListener("click",function(){
+    resConfirm.classList.remove("show");
+    keywrap.classList.remove("turned");
+    resForm.style.display="flex";
+    arrival.value=""; nights=2; guests=1;
+    nightsVal.textContent="2";
+    segBtns.forEach(function(x,i){ x.setAttribute("aria-pressed", i===0?"true":"false"); });
+    holdBtn.disabled=true;
+  });
+})();
+</script>
+</body>
+</html>
